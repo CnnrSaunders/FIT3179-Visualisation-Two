@@ -39,7 +39,7 @@
           "lookup": "properties.NAME",
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/CnnrSaunders/FIT3179/refs/heads/main/data/average-death-rates.csv"
+              "url": "https://raw.githubusercontent.com/CnnrSaunders/FIT3179-Visualisation-Two/refs/heads/main/data/average-death-rates.csv"
             },
             "key": "Entity",
             "fields": ["Average Death Rate"]
