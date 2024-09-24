@@ -1,0 +1,48 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": { "text": "Average Death Rate from Self-Harm per 100,000 People: Top Five Highest Countries Over Time" },
+    "data": {
+      "url": "https://raw.githubusercontent.com/CnnrSaunders/FIT3179-Visualisation-Two/refs/heads/main/data/death-rate-from-suicides-gho.csv"
+    },
+    "transform": [
+      {
+        "filter": {
+          "field": "Entity",
+          "oneOf": [
+            "Angola", "Lithuania", "Lesotho", "Zimbabwe", 
+            "Kazakhstan"
+          ]
+        }
+      }
+    ],
+    "mark": "line",
+    "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "temporal",
+        "title": "Year",
+        "axis": {"format": "%Y"}
+      },
+      "y": {
+        "field": "Age-standardized death rate from self-harm among both sexes per 100000",
+        "type": "quantitative",
+        "title": "Death Rate (per 100,000)"
+      },
+      "color": {
+        "field": "Entity",
+        "type": "nominal",
+        "title": "Country",
+        "legend": {"title": "Countries"}
+      },
+      "tooltip": [
+        {"field": "Entity", "type": "nominal", "title": "Country"},
+        {"field": "Year", "type": "temporal", "title": "Year"},
+        {
+          "field": "Age-standardized death rate from self-harm among both sexes per 100000",
+          "type": "quantitative",
+          "title": "Death Rate"
+        }
+      ]
+    }
+  }
+  
