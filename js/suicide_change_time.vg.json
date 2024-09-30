@@ -1,0 +1,147 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Suicides Per 100,000 in each country, 2000 - 2021",
+    "width": 800,
+    "height": 500,
+    "params": [
+      {
+        "name": "Year_selection",
+        "value": 2018,
+        "bind": {
+          "input": "range",
+          "min": 2000,
+          "max": 2021,
+          "step": 1,
+          "name": "Year: "
+        }
+      },
+      {
+        "name": "zoom_level",
+        "value": 110,   
+        "bind": {
+          "input": "range",
+          "min": 110,     
+          "max": 1000,   
+          "step": 50,
+          "name": "Zoom: "
+        }
+      },
+      {
+        "name": "center_to",
+        "value": [0, 0], 
+        "bind": {
+          "input": "select",
+          "options": [
+            [0, 0],          
+            [-100, 40],      
+            [10, 50],        
+            [30, -10],       
+            [100, 60],       
+            [140, -30],      
+            [-60, -20]       
+          ],
+          "labels": ["World", "North America", "Europe", "Africa", "Asia", "Australia", "South America"],
+          "name": "Map Center: "
+        }
+      }
+    ],
+    "projection": {
+      "type": "equirectangular",
+      "center": {"expr": "center_to"},
+      "scale": {"expr": "zoom_level"}
+    },
+    "layer": [
+      {
+        
+        "data": {
+          "url": "https://raw.githubusercontent.com/CnnrSaunders/FIT3179-Visualisation-Two/refs/heads/main/js/oceans.topojson",
+          "format": {"type": "topojson", "feature": "oceans"}
+        },
+        "mark": {"type": "geoshape", "fill": "skyblue"}
+      },
+      {
+        
+        "data": {
+          "url": "https://raw.githubusercontent.com/CnnrSaunders/FIT3179-Visualisation-Two/refs/heads/main/js/graticules.topojson",
+          "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
+        },
+        "mark": {"type": "geoshape", "fill": null, "stroke": "lightgray"}
+      },
+
+
+
+
+      {
+        
+        "data": {
+          "url": "https://raw.githubusercontent.com/CnnrSaunders/FIT3179-Visualisation-Two/refs/heads/main/js/countries.topojson",
+          "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+        },
+        "transform": [
+          {
+            "calculate": "'Data is not available in ' + datum.properties.NAME",
+            "as": "note"
+          }
+        ],
+        "mark": {
+          "type": "geoshape",
+          "fill": "#ddd",
+          "stroke": "white",
+          "strokeWidth": 1
+        },
+        "encoding": {
+          "tooltip": {"field": "note"}
+        }
+      },
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/CnnrSaunders/FIT3179-Visualisation-Two/refs/heads/main/data/death-rate-from-suicides-gho.csv"
+        },
+        "transform": [
+          {
+            "lookup": "Entity",
+            "from": {
+              "data": {
+                "url": "https://raw.githubusercontent.com/CnnrSaunders/FIT3179-Visualisation-Two/refs/heads/main/js/countries.topojson",
+                "format": {
+                  "type": "topojson",
+                  "feature": "ne_110m_admin_0_countries"
+                }
+              },
+              "key": "properties.NAME"
+            },
+            "as": "geo"
+          },
+          {
+            "filter": "datum.Year == Year_selection"
+          }
+        ],
+        "mark": {
+          "type": "geoshape",
+          "stroke": "#fff",
+          "strokeWidth": 0.5
+        },
+        "encoding": {
+          "shape": {"field": "geo", "type": "geojson"},
+          "color": {
+            "field": "Age-standardized death rate from self-harm among both sexes per 100000",
+            "type": "quantitative",
+            "title": "Age-standardized death rate from self-harm",
+            "scale": {"domain": [0, 50], "scheme": "greenblue"},
+            "legend": {"format": ".2s"}
+          },
+          "tooltip": [
+            {"field": "Entity", "type": "nominal", "title": "Country"},
+            {
+              "field": "Age-standardized death rate from self-harm among both sexes per 100000",
+              "type": "quantitative",
+              "title": "Age-standardized death rate",
+              "format": ".1f"
+            },
+            {"field": "Year", "type": "quantitative", "title": "Year"}
+          ]
+        }
+      }
+    ]
+  }
+  

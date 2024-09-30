@@ -4,7 +4,7 @@ Africa,9.489476
 Albania,4.335420736
 Algeria,2.650682788
 Andorra,9.26311424
-Angola,13.17697167
+Angola,13.17697167 
 Antigua and Barbuda,0.547440556
 Argentina,8.698934
 Armenia,4.263848865
@@ -51,7 +51,7 @@ Dem. Rep. Congo,14.860633
 Denmark,10.491338
 Djibouti,9.825897
 Dominican Rep.,5.464468
-East Timor,4.2383752
+Timor-Leste,4.2383752
 Ecuador,8.0560193
 Egypt,1.021715
 El Salvador,8.775129
@@ -70,7 +70,7 @@ Georgia,3.43207456
 Germany,9.01976671
 Ghana,8.22602922
 Greece,3.3900488
-Greenland,1.47967274
+Greenland,14.647967274
 Grenada,1.17967274
 Guatemala,7.50766249
 Guinea,8.06603426
@@ -145,6 +145,7 @@ Peru,1.387807646
 Philippines,3.55673737
 Poland,13.44459623
 Portugal,7.699764739
+Puerto Rico,6.74578833
 Qatar,7.897032736
 Romania,9.770893356
 Russia,28.64578833
@@ -163,7 +164,7 @@ Sierra Leone,9.492538
 Singapore,8.3386063
 Slovakia,10.356349
 Slovenia,17.067853
-Solomon Islands,23.187001
+Solomon Is.,23.187001
 Somalia,16.008153
 Somaliland,15.119374
 South Africa,18.710198
