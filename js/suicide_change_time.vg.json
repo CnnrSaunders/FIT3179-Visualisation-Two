@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Suicides Per 100,000 in each country, 2000 - 2021",
+    "title": "Suicides Per 100,000 In Each Country, 2000 - 2021",
     "width": 800,
     "height": 500,
     "params": [
