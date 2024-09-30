@@ -6,3 +6,29 @@
 	/*height: 1000px;
 	width: 800px;*/
 }
+
+body {
+    display: grid;
+    grid-template-rows: auto repeat(4, 1fr);
+    grid-template-columns: 1fr 1fr;
+    gap: 0; /* No gap between grid items */
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default margin */
+}
+
+.title {
+    grid-column: 1 / -1; /* Merge the first row across both columns */
+    text-align: center;
+    font-size: 24px;
+    padding: 20px; /* Add some padding */
+    background-color: #f0f0f0; /* Optional background color */
+}
+
+.grid-item {
+    display: flex; /* Use Flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    border: 1px solid transparent; /* Make grid lines invisible */
+    padding: 10px; /* Add padding for content */
+    height: 100%; /* Make sure it takes full height of the grid cell */
+}
