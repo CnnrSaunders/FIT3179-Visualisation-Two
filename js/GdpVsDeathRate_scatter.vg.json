@@ -1,10 +1,13 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Scatter plot of Average Death Rate vs GDP Per Capita by country.",
+    "title": "Scatter Plot of Average Death Rate vs GDP Per Capita by Country",
     "data": {
       "url": "https://raw.githubusercontent.com/CnnrSaunders/FIT3179-Visualisation-Two/refs/heads/main/data/average-death-rates.csv"
     },
-    "mark": "point",
+    "mark": {
+      "type": "point",
+      "tooltip": true
+    },
     "encoding": {
       "x": {
         "field": "GDP Per Capita ($)",
@@ -16,11 +19,27 @@
         "type": "quantitative",
         "title": "Average Death Rate"
       },
+      "color": {
+        "field": "Entity",
+        "type": "nominal",
+        "title": "Country",
+        "scale": {
+          "scheme": "category10"
+        }
+      },
+      "size": {
+        "field": "Average Death Rate",
+        "type": "quantitative",
+        "title": "Average Death Rate",
+        "scale": {
+          "range": [20, 200]  
+        }
+      },
       "tooltip": [
         {"field": "Entity", "type": "nominal", "title": "Country"},
         {"field": "Average Death Rate", "type": "quantitative"},
         {"field": "GDP Per Capita ($)", "type": "quantitative"}
       ]
     }
-}
+  }
   
