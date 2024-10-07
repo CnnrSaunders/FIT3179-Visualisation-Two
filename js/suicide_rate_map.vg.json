@@ -62,6 +62,33 @@
           {"field": "Average Death Rate", "type": "quantitative", "format": ".2f", "title": "Average Death Rate Per 100,000"}
         ]
       }
+    },
+    {
+      "transform": [
+        {
+          "lookup": "properties.NAME",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/CnnrSaunders/FIT3179-Visualisation-Two/refs/heads/main/data/countryInfo.csv"
+            },
+            "key": "name",
+            "fields": ["latitude", "longitude"]
+          }
+        }
+      ],
+      "mark": {"type": "text"},
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "text": {"field": "properties.NAME", "type": "nominal"},
+        "opacity": {
+          "condition": {
+            "test": "datum['properties.NAME'] == 'China' || datum['properties.NAME'] == 'Canada' || datum['properties.NAME'] == 'Greenland' || datum['properties.NAME'] == 'Madagascar' || datum['properties.NAME'] == 'Brazil' || datum['properties.NAME'] == 'Australia' || datum['properties.NAME'] == 'Malaysia' || datum['properties.NAME'] == 'Yemen' || datum['properties.NAME'] == 'United States of America'",
+            "value": 1
+          },
+          "value": 0
+        }
+      }
     }
   ],
   "config": {}
