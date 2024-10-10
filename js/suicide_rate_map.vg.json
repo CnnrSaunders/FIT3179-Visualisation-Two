@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Average Suicide Death Rates by Country Per 100,000, Between 2000-2021",
-  "width": 650,
-  "height": 400,
+  "width": 325,
+  "height": 200,
   "data": {
     "url": "https://raw.githubusercontent.com/CnnrSaunders/FIT3179-Visualisation-Two/refs/heads/main/js/countries.topojson",
     "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
