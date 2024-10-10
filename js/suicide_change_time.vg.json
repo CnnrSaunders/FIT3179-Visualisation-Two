@@ -35,7 +35,7 @@
             [0, 0],          
             [-100, 40],      
             [10, 50],        
-            [30, -10],       
+            [30, 5],       
             [100, 30],       
             [140, -30],      
             [-60, -20]       
@@ -126,7 +126,7 @@
           "color": {
             "field": "Age-standardized death rate from self-harm among both sexes per 100000",
             "type": "quantitative",
-            "title": "Age-standardized death rate from self-harm",
+            "title": "Death rate from self-harm",
             "scale": {"domain": [0, 50], "scheme": "greenblue"},
             "legend": {"format": ".2s"}
           },

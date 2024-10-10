@@ -13,7 +13,7 @@
   "params": [
     {
       "name": "gdpCap",
-      "value": 100000,
+      "value": 5000,
       "bind": {
         "input": "range",
         "min": 0,
