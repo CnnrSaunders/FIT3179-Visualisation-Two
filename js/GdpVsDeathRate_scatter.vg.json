@@ -1,6 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Scatter Plot of Average Death Rate vs GDP Per Capita by Country",
+    "width": 325,
+    "height": 200,
     "data": {
       "url": "https://raw.githubusercontent.com/CnnrSaunders/FIT3179-Visualisation-Two/refs/heads/main/data/average-death-rates.csv"
     },
